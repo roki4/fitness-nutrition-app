@@ -4,8 +4,10 @@ const sequelize = require("sequelize");
 const TelegramBot = require("node-telegram-bot-api");
 const helper = require("./src/helper.js");
 const config = require("./config/index.js");
+const keyboard = require('./src/keyboard.js');
 
 const bot = new TelegramBot(config.TOKEN, { polling: true });
+
 let goal_for_day = 1;
 
 bot.onText(/\/start/, async (msg) => {
@@ -13,7 +15,7 @@ bot.onText(/\/start/, async (msg) => {
 
   await bot.sendMessage(helper.getChatId(msg), text, {
     reply_markup: {
-      keyboard: [["ТЫК"]],
+      keyboard: [[keyboard.home]],
     },
   });
 });
@@ -27,7 +29,7 @@ bot.onText(/ТЫК/, async (msg) => {
       )}\nВы прозанимались сегодня 4 часа! Можете отдыхать.`,
       {
         reply_markup: {
-          keyboard: [["ТЫК"]],
+          keyboard: [[keyboard.home]],
         },
       }
     );
@@ -42,7 +44,7 @@ bot.onText(/ТЫК/, async (msg) => {
     `Ваш счёт: ${goal_for_day} - (${helper.convertCountToTime(goal_for_day)})`,
     {
       reply_markup: {
-        keyboard: [["ТЫК"]],
+        keyboard: [[keyboard.home]],
       },
     }
   );
