@@ -1,9 +1,9 @@
 module.exports = {
+    start: '/start',
   home: {
-    start_clicker_four_hour: '4-часовой кликер',
+    find_out_the_calories_of_a_dish: 'Find out the calories of a dish'
   },
-  clicker_four_hour_menu: {
-    to_home: 'В главное меню',
-    click: 'ТЫК(+30 мин)'
+  menu_find_out_the_calories_of_a_dish: {
+    to_home: 'To home',
   }
 }
